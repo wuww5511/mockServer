@@ -1,0 +1,15 @@
+{
+  "name": "mockserver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "mockserver": "./bin/index"
+  },
+  "repository": "https://github.com/wuww5511/mockServer.git",
+  "author": "wuweiwei <wuww5511@126.com>",
+  "license": "MIT",
+  "dependencies": {
+    "anyproxy": "beta",
+    "commander": "^2.10.0"
+  }
+}
