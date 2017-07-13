@@ -10,18 +10,7 @@ program
 let config = {}
 
 if (program.config) {
-    try {
-        const confPath = resolve(program.config)
-        config = require(confPath)
-        
-        if (config.rule && config.rule.mock) {
-            config.rule.mock = resolve(confPath, '..', config.rule.mock)
-        }
-
-        anyproxy.start(config)
-    } catch(err) {
-        console.log(err.message)
-    }
+   anyproxy.start(program.config)
 } else {
     console.log('error:', '指定一个配置文件吧~')
 }
