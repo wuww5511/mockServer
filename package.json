@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "anyproxy": "beta",
-    "commander": "^2.10.0"
+    "commander": "^2.10.0",
+    "mockjs": "^1.0.1-beta3"
   }
 }
