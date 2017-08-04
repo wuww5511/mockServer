@@ -14,7 +14,7 @@ program
 if (program.config) {
    anyproxy.start(program.config)
 } else {
-    const defaultConfig = resolve(process.cwd(), './mock_server/rule.json')
+    const defaultConfig = resolve(process.cwd(), './mock_server/rule.js')
     fs.pathExists(defaultConfig)
         .then(function (exists) {
             if (exists) {
