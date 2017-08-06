@@ -6,7 +6,7 @@ describe('test util', function () {
         var records = []
         var promises = [
             function (last) {
-                return genPromise(1, 100).then(function (res) {
+                return genPromise(1, 10).then(function (res) {
                     var value = res + last
                     records.push(value)
                     return value
