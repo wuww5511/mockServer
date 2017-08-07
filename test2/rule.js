@@ -11,14 +11,7 @@ module.exports = {
         {
             name: 'mock',
             include: ['/mock'],
-            mock: {
-                '/list': {
-                    'list|10-20': {
-                        'id|+1': 0,
-                        'text': 'text' 
-                    }
-                }
-            }
+            mock: require('path').resolve(__dirname, './mock.js')
         }
     ],
     "anyproxy": {
