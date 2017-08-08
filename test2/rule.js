@@ -1,17 +1,10 @@
 module.exports = {
     "plugins": [
-       {
-           name: 'proxy',
-           include: ['/proxy'],
-           proxy: {
-               '/2http$': 'http://localhost:8002',
-               '/2https$': 'https://www.baidu.com'
-           }
-       },
         {
             name: 'mock',
             include: ['/mock'],
-            mock: require('path').resolve(__dirname, './mock.js')
+            mock: require('path').resolve(__dirname, './mock.js'),
+            delay: 0
         }
     ],
     "anyproxy": {

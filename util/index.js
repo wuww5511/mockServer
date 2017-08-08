@@ -39,18 +39,12 @@ exports.usePlugin = function usePlugin (plugins, opts, initial) {
     var actions = []
     plugins.forEach(function (plugin, index) {
         actions.push(function (last) {
-            return Promise.resolve(initial).then(function () {
+            return Promise.resolve().then(function () {
                 return last
             }).then(function (res) {
-                if (res === false) {
-                    return plugin(opts, res)
-                } else {
-                    return res
-                }
+                return plugin(opts, res)
             })
         })
     })
-    return exports.reducePromise(actions, false).then(function (res) {
-        return res === null? false : res 
-    })
+    return exports.reducePromise(actions, initial)
 }
