@@ -1,4 +1,4 @@
-var rule = require('../lib/rule')
+/* var rule = require('../lib/rule')
 var logger = require('../util/log')
 var assert = require('assert')
 
@@ -56,63 +56,7 @@ describe('rule', function () {
         })
     })
 
-    it('useMock:plainObject:mock', function (done) {
-        Promise.resolve().then(function () {
-            return useMock(
-                {mock: {'/bc': {a: 1}, '/a': {b: 1}}, url: 'https://a.com/a/b/c'}
-            )
-        }).then(function (res) {
-            assert.deepEqual(JSON.parse(res.response.body), {b: 1})
-            done()
-        })
-    })
-
-    it('useMock:plainObject:pass', function (done) {
-        Promise.resolve().then(function () {
-            return useMock(
-                {mock: {'/bc': {a: 1}, '/ad': {b: 1}}, url: 'https://a.com/a/b/c'}
-            )
-        }).then(function (res) {
-            assert(res === false)
-            done()
-        })
-    })
-
-
-    it('useMock:function:mock', function (done) {
-        Promise.resolve().then(function () {
-            return useMock(
-                {
-                    mock: function (opts) {
-                        var url = opts.url
-                        return {
-                            a: url
-                        }
-                    },
-                    url: 'https://a.com/a/b/c'
-                }
-            )
-        }).then(function (res) {
-            assert.deepEqual(JSON.parse(res.response.body), {a: 'https://a.com/a/b/c'})
-            done()
-        })
-    })
-
-    it('useMock:function:pass', function (done) {
-        Promise.resolve().then(function () {
-            return useMock(
-                {
-                    mock: function (opts) {
-                       return Promise.resolve(false)
-                    },
-                    url: 'https://a.com/a/b/c'
-                }
-            )
-        }).then(function (res) {
-            assert.equal(res, false)
-            done()
-        })
-    })
+    
 
     it('useProxy:str', function (done) {
         Promise.resolve().then(function () {
@@ -188,4 +132,4 @@ describe('rule', function () {
             done()
         })
     })
-})
+}) */

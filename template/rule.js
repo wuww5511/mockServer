@@ -1,14 +1,8 @@
-{
-    "rule": {
-        "include": ["localhost"],
-        "exclude": [],
-        "mock": "./mock.js",
-        "proxy": ""
-    },
+module.exports = {
+    "plugins": [],
     "anyproxy": {
         "port": 8001,
         "webInterface": {
-            "enable": true,
             "webPort": 8002,
             "wsPort": 8003
         },
