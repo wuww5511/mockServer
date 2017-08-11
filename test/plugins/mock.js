@@ -56,7 +56,7 @@ describe('test mockPlugin', function () {
         Promise.resolve().then(function () {
             return mockPlugin(
                 {mock: {'/b': {a: 1}}, url: 'http://a.com/b'},
-                {a: 1, response: {b: 1, headers: {c: 1}}}
+                {a: 1, response: {b: 1, header: {c: 1}}}
             )
         }).then(function (res) {
             var body = res.response.body
@@ -65,7 +65,7 @@ describe('test mockPlugin', function () {
                 response: {
                     b: 1,
                     statusCode: 200,
-                    headers: {
+                    header: {
                         'Content-Type': 'application/json',
                         c: 1
                     },

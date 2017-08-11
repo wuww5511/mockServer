@@ -1,20 +1,10 @@
-/* var rule = require('../lib/rule')
-var logger = require('../util/log')
 var assert = require('assert')
+var pluginProxy = require('../../plugins/proxy')
 
-logger.level = 'error'
-
-var useInclude = rule.useInclude
-var useExclude = rule.useExclude
-var useMock = rule.useMock
-var usePlugin = rule.usePlugin
-var useProxy = rule.useProxy
-
-describe('rule', function () {
-
-    it('useProxy:str', function (done) {
+describe('pluginProxy:', function () {
+    it('str', function (done) {
         Promise.resolve().then(function () {
-            return useProxy({
+            return pluginProxy({
                 proxy: {
                     '/test': 'http://baidu.com/a'
                 },
@@ -36,9 +26,9 @@ describe('rule', function () {
         })
     })
 
-    it('useProxy:reg', function (done) {
+    it('reg', function (done) {
         Promise.resolve().then(function () {
-            return useProxy({
+            return pluginProxy({
                 proxy: {
                     'a.com/reader(\\d+)/id([a-z]*)': 'http://b.com/[$1]/[$2]'
                 },
@@ -59,31 +49,4 @@ describe('rule', function () {
             done()
         })
     })
-
-    it('usePlugin', function (done) {
-        var opts = {}
-        var plugins = [
-            function (o) {
-                assert.equal(o, opts)
-                return false
-            },
-            function (o) {
-                assert.equal(o, opts)
-                return Promise.resolve(false)
-            },
-            function (o) {
-                assert.equal(o, opts)
-                return Promise.resolve({a: 1})
-            },
-            function (o) {
-                assert.equal(o, opts)
-                return Promise.resolve({b: 1})
-            }
-        ]
-
-        usePlugin(plugins, opts).then(function (res) {
-            assert.deepEqual(res, {a: 1})
-            done()
-        })
-    })
-}) */
+})

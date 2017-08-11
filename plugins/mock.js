@@ -1,6 +1,7 @@
 var logger = require('../util/log')
 var Mock = require('mockjs')
-module.exports = function pluginMock (opts, last) {
+
+module.exports = function (opts, last) {
     var response = last && last.response || {}
     var header = Object.assign(
         {},
@@ -29,7 +30,7 @@ module.exports = function pluginMock (opts, last) {
             if (!data) {
                 return last
             } else {
-                logger.info('useMock:', opts.url)
+                logger.info('mockPlugin:', opts.url)
                 response.header = header
                 response.statusCode = statusCode
                 response.body = JSON.stringify(
@@ -59,7 +60,7 @@ module.exports = function pluginMock (opts, last) {
                     response.body = JSON.stringify(
                         Mock.mock(data)
                     )
-                    logger.info('useMock:', opts.url)
+                    logger.info('mockPlugin:', opts.url)
                     return Promise.resolve(
                         Object.assign(last || {}, {response: response})
                     )  

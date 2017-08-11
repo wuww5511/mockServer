@@ -1,4 +1,4 @@
-module.exports = function excludeDecorator (opts, last) {
+module.exports = function (opts, last) {
     return new Promise(function (resolve, reject) {
         var excludes = opts.exclude || []
         var next = true

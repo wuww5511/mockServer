@@ -5,6 +5,14 @@ module.exports = {
             include: ['/mock'],
             mock: require('path').resolve(__dirname, './mock.js'),
             delay: 0
+        },
+        {
+            name: 'proxy',
+            include: ['/proxy', 'proxy.io'],
+            proxy: {
+                '/localhost': 'http://localhost',
+                '.*': 'http://www.github.com'
+            }
         }
     ],
     "anyproxy": {

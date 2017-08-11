@@ -1,4 +1,7 @@
-module.exports = function useProxy (opts) {
+var url = require('url')
+var logger = require('../util/log')
+
+module.exports = function (opts, last) {
     var proxy = opts.proxy
     if (!proxy) {
         return false
@@ -18,11 +21,8 @@ module.exports = function useProxy (opts) {
 
             var urlObj = url.parse(realUrl)
 
-            logger.info('useProxy', 'match:', i, 'url', opts.url)
-
-            if (urlObj.protocol === 'https:') {
-                logger.warn('只支持同域名的https转发')
-            } 
+            logger.info('proxyPlugin:', opts.url, '->', realUrl)
+            
             return {
                 requestOptions: Object.assign(
                     {}, 

@@ -1,4 +1,4 @@
-module.exports = function delayDecorator (opts, last) {
+module.exports = function (opts, last) {
     if (!opts.delay) {
         return Promise.resolve()
     }

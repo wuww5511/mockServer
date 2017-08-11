@@ -1,3 +1,3 @@
-module.exports = function pluginDummy (opts, last) {
+module.exports = function (opts, last) {
     return last
 }

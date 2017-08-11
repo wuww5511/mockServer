@@ -1,4 +1,4 @@
-module.exports = function headerPlugin (opts, last) {
+module.exports = function (opts, last) {
     if (!opts.header) {
         return last
     } 

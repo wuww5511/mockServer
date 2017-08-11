@@ -1,4 +1,4 @@
-module.exports = function includeDecorator (opts, last) {
+module.exports = function (opts, last) {
     return new Promise(function (resolve, reject) {
         var includes = opts.include || []
         if (includes.length > 0) {

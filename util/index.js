@@ -24,7 +24,7 @@ exports.decoratePlugin = function decoratePlugin (decorator, plugin) {
     }
 }
 
-exports.useDecorators = function useDecorators (decorators, plugin) {
+exports.applyDecorators = function (decorators, plugin) {
     var tempPlugin = plugin
 
     for (var i = decorators.length - 1; i >= 0; i--) {
@@ -35,7 +35,7 @@ exports.useDecorators = function useDecorators (decorators, plugin) {
 }
 
 
-exports.usePlugin = function usePlugin (plugins, opts, initial) {
+exports.applyPlugin = function usePlugin (plugins, opts, initial) {
     var actions = []
     plugins.forEach(function (plugin, index) {
         actions.push(function (last) {
