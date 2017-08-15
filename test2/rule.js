@@ -13,6 +13,13 @@ module.exports = {
                 '/localhost': 'http://localhost',
                 '.*': 'http://www.github.com'
             }
+        },
+        {
+            "name": "resHeader",
+            "include": ["\\?test"],
+            "header": {
+                "a": 123
+            }
         }
     ],
     "anyproxy": {

@@ -24,14 +24,17 @@ exports.decoratePlugin = function decoratePlugin (decorator, plugin) {
     }
 }
 
-exports.applyDecorators = function (decorators, plugin) {
+exports.applyDecorators = function (decorators, plugin, meta) {
     var tempPlugin = plugin
 
     for (var i = decorators.length - 1; i >= 0; i--) {
         tempPlugin = exports.decoratePlugin(decorators[i], tempPlugin)
     }
 
-    return tempPlugin
+    return function () {
+        // meta ? console.log(meta) : null
+        tempPlugin.apply(null, arguments)
+    }
 }
 
 
