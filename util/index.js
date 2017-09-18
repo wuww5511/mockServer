@@ -8,10 +8,10 @@ exports.reducePromise = function reducePromise (funcs, defaultValue) {
     return promise
 }
 
-exports.decoratePlugin = function decoratePlugin (decorator, plugin) {
+exports.decoratePlugin = function decoratePlugin (decorator, plugin, meta) {
     return function (opts, last) {
         return new Promise(function (resolve, reject) {
-            decorator(opts, last).then(function () {
+            decorator(opts, last, meta).then(function () {
                 Promise.resolve().then(function () {
                     return plugin(opts, last)
                 }).then(function (res) {
@@ -28,12 +28,12 @@ exports.applyDecorators = function (decorators, plugin, meta) {
     var tempPlugin = plugin
 
     for (var i = decorators.length - 1; i >= 0; i--) {
-        tempPlugin = exports.decoratePlugin(decorators[i], tempPlugin)
+        tempPlugin = exports.decoratePlugin(decorators[i], tempPlugin, meta)
     }
 
     return function () {
         // meta ? console.log(meta) : null
-        tempPlugin.apply(null, arguments)
+        return tempPlugin.apply(null, arguments)
     }
 }
 

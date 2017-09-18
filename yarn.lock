@@ -89,9 +89,9 @@ ansistyles@~0.1.3:
   version "0.1.3"
   resolved "https://registry.npmjs.org/ansistyles/-/ansistyles-0.1.3.tgz#5de60415bda071bb37127854c864f41b23254539"
 
-anyproxy@4:
-  version "4.0.0-beta15"
-  resolved "https://registry.npmjs.org/anyproxy/-/anyproxy-4.0.0-beta15.tgz#8888201cea0696b7115e316b7dde4a79b4b432b1"
+anyproxy@^4.0.0-beta17:
+  version "4.0.0-beta17"
+  resolved "http://223.252.220.16:4873/anyproxy/-/anyproxy-4.0.0-beta17.tgz#c6ab4226a93f30718d759621030b763029af8b6b"
   dependencies:
     async "~0.9.0"
     async-task-mgr ">=1.1.0"

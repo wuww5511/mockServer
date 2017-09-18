@@ -1,4 +1,6 @@
-module.exports = function (opts, last) {
+var logger = require('../util/log')
+
+module.exports = function (opts, last, meta) {
     return new Promise(function (resolve, reject) {
         var excludes = opts.exclude || []
         var next = true
@@ -13,5 +15,9 @@ module.exports = function (opts, last) {
         } else {
             resolve()
         }
+    }).then(function () {
+        logger.info(meta + '_excludeDecorator_pass:', opts.url)
+    }).catch(function () {
+        logger.info(meta + '_excludeDecorator_forbidden:', opts.url)
     })
 }

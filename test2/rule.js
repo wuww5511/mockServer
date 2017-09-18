@@ -10,8 +10,8 @@ module.exports = {
             name: 'proxy',
             include: ['/proxy', 'proxy.io'],
             proxy: {
-                '/localhost': 'http://localhost',
-                '.*': 'http://www.github.com'
+                '/localhost': 'http://localhost:8080',
+                '/github': 'http://localhost:8080'
             }
         },
         {
@@ -29,6 +29,6 @@ module.exports = {
             "wsPort": 8003
         },
         "forceProxyHttps": true,
-        "silent": true
+        "silent": false
     }
 }
