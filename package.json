@@ -12,7 +12,7 @@
   "author": "wuweiwei <wuww5511@126.com>",
   "license": "MIT",
   "dependencies": {
-    "anyproxy": "^4.0.0-beta17",
+    "anyproxy": "@4.0.0-beta17",
     "commander": "^2.10.0",
     "fs-extra": "^4.0.0",
     "log4js": "^2.1.0",
