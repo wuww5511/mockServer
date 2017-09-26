@@ -1,4 +1,6 @@
-module.exports = function (opts, last) {
+var logger = require('../util/log')
+
+module.exports = function (opts, last, meta) {
     if (!opts.delay) {
         return Promise.resolve()
     }
@@ -6,5 +8,7 @@ module.exports = function (opts, last) {
         setTimeout(function () {
             resolve()
         }, opts.delay)
+    }).then(function () {
+        logger.info(meta + '_delayDecorator:', opts.url, opts.delay + 'ms')
     })
 }

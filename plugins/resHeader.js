@@ -12,6 +12,12 @@ module.exports = function (opts, last) {
 
     Object.assign(newResponse.header, opts.header)
 
+    for (var key in newResponse.header) {
+        if (!newResponse.header[key]) {
+            delete newResponse.header[key]
+        }
+    }
+
     return {
         response: newResponse
     }

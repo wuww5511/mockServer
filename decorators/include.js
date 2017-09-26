@@ -1,6 +1,9 @@
 var logger = require('../util/log')
 
 module.exports = function (opts, last, meta) {
+    if (!opts.include) {
+        return Promise.resolve()
+    }
     return new Promise(function (resolve, reject) {
         var includes = opts.include || []
         if (includes.length > 0) {
@@ -18,7 +21,5 @@ module.exports = function (opts, last, meta) {
         resolve()
     }).then(function () {
         logger.info(meta + '_includeDecorator_pass:', opts.url)
-    }).catch(function () {
-        logger.info(meta + '_includeDecorator_forbidden:', opts.url)
     })
 }

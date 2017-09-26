@@ -8,7 +8,8 @@ module.exports = function (opts, last) {
     }
     
     for (var i in proxy) {
-        if (new RegExp(i).test(opts.url)) {
+        var reg = i instanceof RegExp ? i : new RegExp(i)
+        if (reg.test(opts.url)) {
             var map = {}
             for (var j = 1; j < 10; j++) {
                 map['$' + j] = RegExp['$' + j]

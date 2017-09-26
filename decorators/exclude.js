@@ -15,8 +15,6 @@ module.exports = function (opts, last, meta) {
         } else {
             resolve()
         }
-    }).then(function () {
-        logger.info(meta + '_excludeDecorator_pass:', opts.url)
     }).catch(function () {
         logger.info(meta + '_excludeDecorator_forbidden:', opts.url)
     })

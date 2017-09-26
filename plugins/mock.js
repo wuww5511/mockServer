@@ -47,7 +47,8 @@ module.exports = function (opts, last) {
         })
     } else if (typeof mock === 'object') {
         for (var i in mock) {
-            if (new RegExp(i).test(opts.url)) {
+            var reg = i instanceof RegExp ? i : new RegExp(i)
+            if (reg.test(opts.url)) {
                 return Promise.resolve().then(function () {
                     if (typeof mock[i] === 'function') {
                         return mock[i].call(null, opts)

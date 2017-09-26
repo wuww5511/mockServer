@@ -4,7 +4,7 @@ module.exports = function (opts, last) {
     }
 
     var newRequestOptions = (
-        last && last.requestOptions || requestDetail.requestOptions
+        last && last.requestOptions || opts.requestDetail.requestOptions
     )
     
     Object.assign(newRequestOptions.headers, opts.header)
