@@ -48,6 +48,7 @@ module.exports = {
 ## plugins配置
 
 ### mock
+拦截指定请求，返回mock数据，如下面配置，为所有包含`localhost`, `/test`的请求，延迟1000ms后，返回json数据。
 ```
 {
     name: 'mock',
@@ -64,19 +65,18 @@ module.exports = {
 ```
 
 ### proxy
+将指定请求代理到特定的服务器，如下面的配置，当请求`https://a.com/a.js`时，会返回`http://localhost/b.js`的数据；当请求`https://b.com/a.js`时，会返回`http://localhost/a.js`的数据。
 ```
 {
     name: 'proxy',
-    include: ['localhost'],
-    exclude: [],
-    delay: 1000,
     proxy: {
         'https://a.com/a.js': 'http://localhost/b.js',
-        'https://a.com/(.*)': 'http://localhost/[$1]'
+        'https://b.com/(.*)': 'http://localhost/[$1]'
     }
 }
 ```
 ### resHeader
+对响应报头进行修改，如下面配置，为所有包含`localhost`的请求添加控制缓存的响应报头
 ```
 {
     name: 'resHeader',
@@ -90,3 +90,7 @@ module.exports = {
     }
 }
 ```
+
+### 通用配置
+`include`, `exclude` : 对经过代理服务器的请求进行筛选。
+`delay`: 延迟一段时间后再返回数据
