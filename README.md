@@ -94,3 +94,30 @@ module.exports = {
 ### 通用配置
 `include`, `exclude` : 对经过代理服务器的请求进行筛选。
 `delay`: 延迟一段时间后再返回数据
+
+## 源码相关
+### decorator
+一个decorator的形式类似于:
+```
+/**
+ *  @param {Object} opts 传递给plugin的参数
+ *  @param {Object} last 上一个plugin返回的数据
+ *  @return {Promise} resolve后，后续的decorator或plugin才会开始执行，如果reject, 后续的decorator和plugin都不会执行
+ */
+function (opts, last) {
+    
+}
+```
+
+### plugin
+一个plugin的格式类似于：
+```
+/**
+ *  @param {Object} opts 传递给plugin的参数
+ *  @param {Object} last 上一个plugin返回的数据
+ *  @param {Any} 可以返回任何类型，可以为Promise
+ */
+function (opts, last) {
+
+}
+```

@@ -37,8 +37,12 @@ exports.applyDecorators = function (decorators, plugin, meta) {
     }
 }
 
-
-exports.applyPlugin = function usePlugin (plugins, opts, initial) {
+/**
+ * 依次执行一组plugin（每一个plugin返回一个promise, 前一个plugin的promise resolve后，后一个plugin 才会执行。如果前一个plugin的promise reject，则程序报错退出）
+ * @param {Array} plugins 
+ * @param {Object} opts 作为参数，传递每一个plugin
+ */
+exports.applyPlugin = function usePlugin (plugins, opts) {
     var actions = []
     plugins.forEach(function (plugin, index) {
         actions.push(function (last) {
@@ -49,5 +53,5 @@ exports.applyPlugin = function usePlugin (plugins, opts, initial) {
             })
         })
     })
-    return exports.reducePromise(actions, initial)
+    return exports.reducePromise(actions)
 }

@@ -28,10 +28,10 @@ module.exports = {
         {
             name: 'resHeader',
             header: {
-                'Cache-Control': 'max-age=2592000',
-                'Expires': 'Thu, 26 Oct 2017 03:20:53 GMT',
-                'Pragma': '',
-                'Last-Modified': ''
+                'cache-control': 'no-cache',
+                'expires': 'Thu, 26 Oct 2017 03:20:53 GMT',
+                'pragma': '',
+                'last-modified': ''
             }
         }
     ],
