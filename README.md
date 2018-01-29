@@ -83,10 +83,10 @@ module.exports = {
     include: ['localhost'],
     exclude: [],
     header: {
-        'Cache-Control': 'max-age=2592000',
-        'Expires': 'Thu, 26 Oct 2017 03:20:53 GMT',
-        'Pragma': '',
-        'Last-Modified': ''
+        'cache-control': 'max-age=2592000',
+        'expires': 'Thu, 26 Oct 2017 03:20:53 GMT',
+        'pragma': '',
+        'last-modified': ''
     }
 }
 ```
